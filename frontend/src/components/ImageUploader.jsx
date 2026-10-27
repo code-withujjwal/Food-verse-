@@ -2,11 +2,23 @@ import { useEffect, useRef, useState } from 'react';
 import { ImagePlus, X } from 'lucide-react';
 import { ACCEPTED_TYPES, MAX_IMAGE_MB } from '../constants.js';
 
-export default function ImageUploader({ file, onChange, disabled = false, hint }) {
+export default function ImageUploader({ file, onChange, disabled = false, hint, sample, sampleName = 'sample.jpg' }) {
   const inputRef = useRef(null);
   const [preview, setPreview] = useState(null);
   const [error, setError] = useState('');
   const [dragging, setDragging] = useState(false);
+
+  async function loadSample() {
+    if (!sample || disabled) return;
+    try {
+      const res = await fetch(sample);
+      const blob = await res.blob();
+      const sampleFile = new File([blob], sampleName, { type: blob.type || 'image/jpeg' });
+      accept(sampleFile);
+    } catch {
+      setError('Could not load sample image');
+    }
+  }
 
   useEffect(() => {
     if (!file) {
@@ -84,6 +96,20 @@ export default function ImageUploader({ file, onChange, disabled = false, hint }
           <ImagePlus size={30} aria-hidden="true" />
           <strong>Drop a photo here, or browse</strong>
           <span className="muted small">{hint || `JPG, PNG or WebP, up to ${MAX_IMAGE_MB} MB`}</span>
+          {sample && (
+            <button
+              type="button"
+              className="btn btn-secondary btn-sm"
+              style={{ marginTop: '0.5rem', pointerEvents: 'auto' }}
+              onClick={(e) => {
+                e.stopPropagation();
+                loadSample();
+              }}
+              disabled={disabled}
+            >
+              ✨ Try sample image
+            </button>
+          )}
         </div>
       )}
       {error && (

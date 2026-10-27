@@ -40,6 +40,8 @@ export default function FoodScanner() {
           <ImageUploader
             file={file}
             disabled={loading}
+            sample="/test-assets/food-scan.jpg"
+            sampleName="grilled-chicken-meal.jpg"
             onChange={(f) => {
               setFile(f);
               reset();

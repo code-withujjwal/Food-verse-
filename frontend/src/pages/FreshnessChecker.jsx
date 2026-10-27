@@ -48,6 +48,8 @@ export default function FreshnessChecker() {
           <ImageUploader
             file={file}
             disabled={loading}
+            sample="/test-assets/freshness.jpg"
+            sampleName="sample-strawberries.jpg"
             onChange={(f) => {
               setFile(f);
               reset();

@@ -46,6 +46,8 @@ export default function KitchenAnalyzer() {
           <ImageUploader
             file={file}
             disabled={loading}
+            sample="/test-assets/kitchen.jpg"
+            sampleName="sample-kitchen.jpg"
             onChange={(f) => {
               setFile(f);
               reset();

@@ -18,6 +18,37 @@ One web app where the user uploads a photo or fills a short form and gets a stru
 | Meal Planner | `/planner` | `POST /api/meals/plan` | JSON form |
 | Health | header status chip | `GET /api/health` | none |
 
+## Screenshots of Working Application
+
+### 1. Dashboard Overview
+![Dashboard Overview](docs/screenshots/01_dashboard.png)
+
+### 2. Food Scanner & Nutrition Estimation
+*Live Gemini 2.5 Flash recognition: Grilled Chicken Breast, Brown Rice, Broccoli, Tomatoes (575 kcal, 52g protein)*
+![Food Scanner](docs/screenshots/02_food_scanner.png)
+
+### 3. Freshness Checker & Spoilage Screening
+*Live strawberry & blueberry freshness screening with visual observations & actionable next steps*
+![Freshness Checker](docs/screenshots/03_freshness_checker.png)
+
+### 4. Kitchen Hygiene Review
+*Cleanliness evaluation, surface risk assessment & sanitation checklist*
+![Kitchen Hygiene](docs/screenshots/04_kitchen_hygiene.png)
+
+### 5. Cooking Assistant & Recipe Discovery
+*Live generated bespoke recipes with ingredients, cook times, and instructions*
+![Cooking Assistant](docs/screenshots/05_cooking_assistant.png)
+
+### 6. Personalized Meal Planner
+*Daily calorie-aligned meal planning with macro distribution (1,545 kcal vegetarian plan)*
+![Meal Planner](docs/screenshots/06_meal_planner.png)
+
+## Demonstration Video
+A full-length, high-definition screen-recorded demo video is available in `submission_demo/`:
+- **Full HD Demo (1080p, 1m 48s):** `submission_demo/Food_Verse_AI_NASSCOM_Demo.mp4`
+- **Compact Demo (58s):** `submission_demo/Food_Verse_AI_Demo.mp4`
+- **Evaluation Report:** `submission_demo/VERIFICATION_REPORT.md`
+
 ## Technology stack
 React 18, Vite 5, React Router, lucide-react, CSS (frontend). Python, Flask, Flask-CORS, python-dotenv, `google-genai` SDK (backend). Google Gemini (default model `gemini-2.5-flash`, configurable).
 
